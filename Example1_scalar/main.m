@@ -40,7 +40,6 @@ for i=0:9
     %x=[1;zeros(9,1)]';
     for j=0:49
         [t,x] = ode45(@polysys,[j*T,j*T+T]+50*i*T,[x(end,1) zeros(1,9)]');
-        %[t,x] = ode_yuri(j*T,j*T+T,[x(end,1) zeros(1,9)]',0.001);
         C1 = [C1; 1/2*(x(end,1)^2-x(1,1)^2) 1/3*(x(end,1)^3-x(1,1)^3) 1/4*(x(end,1)^4-x(1,1)^4)];
         C2 = [C2; x(end,2:6)];
         C3 = [C3; x(end,7:9)];
@@ -192,10 +191,10 @@ xlabel('x', 'FontSize', 12)
 
 %%
 figure(1)
-export_fig Ex1_state -pdf -transparent
+%export_fig Ex1_state -pdf -transparent
 figure(2)
-export_fig Ex1_control -pdf -transparent
+%export_fig Ex1_control -pdf -transparent
 figure(3)
-export_fig Ex1_cost -pdf -transparent
+%export_fig Ex1_cost -pdf -transparent
 figure(4)
-export_fig Ex1_control_curve -pdf -transparent
+%export_fig Ex1_control_curve -pdf -transparent
